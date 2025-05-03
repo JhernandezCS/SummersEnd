@@ -67,3 +67,8 @@ Plugins/*/Intermediate/*
 
 # Cache files for the editor to use
 DerivedDataCache/*
+*.exp
+*.target
+*.pdb
+*.modules
+Binaries/Win64/UnrealEditor-SummersEnd-Win64-DebugGame.dll
