@@ -12,6 +12,7 @@
  * 
  */
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnBattleActionExecute, UBattleEventContext*, Context);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnBattleActionUndo, UBattleEventContext*, Context);
 UCLASS(Abstract, Blueprintable)
 class SUMMERSEND_API UBattleActionBase : public UObject
 {
@@ -29,9 +30,19 @@ public:
 	UPROPERTY(BlueprintAssignable)
 	FOnBattleActionExecute OnBattleExecute;
 
+	UFUNCTION(BlueprintCallable)
+	void CallUndo(UBattleEventContext* eventContext);
+
+	UPROPERTY(BlueprintAssignable)
+	FOnBattleActionUndo OnBattleUndo;
+
 	UFUNCTION(BlueprintPure)
 	EBattleActionTypes GetBattleActionType() const;
 
+	UFUNCTION(BlueprintPure)
+	int GetNumTargets() const;
+
 protected:
+	int m_numTargets;
 	EBattleActionTypes m_type;
 };

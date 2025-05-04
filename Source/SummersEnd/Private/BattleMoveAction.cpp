@@ -15,4 +15,5 @@
 UBattleMoveAction::UBattleMoveAction()
 {
 	m_type = EBattleActionTypes::Move;
+	m_numTargets = 1;
 }

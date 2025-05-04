@@ -6,6 +6,8 @@
 UBattleEventContext::UBattleEventContext()
 {
 	m_action = nullptr;
+	m_parentContext = nullptr;
+	m_childContext = nullptr;
 }
 
 void UBattleEventContext::PostInitProperties()
@@ -38,4 +40,37 @@ void UBattleEventContext::AddTargetCell(FIntPoint cell, EBattlePlatformCollectio
 	targetCell->m_cell = cell;
 	targetCell->m_type = collType;
 	m_targetCells.Add(targetCell);
+}
+
+void UBattleEventContext::SetParentContext(UBattleEventContext* parent)
+{
+	m_parentContext = parent;
+}
+
+UBattleEventContext* UBattleEventContext::GetParentContext() const
+{
+	return m_parentContext.Get();
+}
+
+void UBattleEventContext::SetChildContext(UBattleEventContext* child)
+{
+	m_childContext = child;
+}
+
+UBattleEventContext* UBattleEventContext::GetChildContext() const
+{
+	return m_childContext.Get();
+}
+
+int UBattleEventContext::GetTargetCellCount() const
+{
+	return m_targetCells.Num();
+}
+
+void UBattleEventContext::PopTargetCells(int numToPop)
+{
+	for (int i = 0; i < numToPop && !m_targetCells.IsEmpty(); ++i)
+	{
+		m_targetCells.Pop();
+	}
 }

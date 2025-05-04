@@ -35,6 +35,24 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void AddTargetCell(FIntPoint cell, EBattlePlatformCollectionType collType);
 
+	UFUNCTION(BlueprintCallable)
+	void SetParentContext(UBattleEventContext* parent);
+
+	UFUNCTION(BlueprintPure)
+	UBattleEventContext* GetParentContext() const;
+
+	UFUNCTION(BlueprintCallable)
+	void SetChildContext(UBattleEventContext* child);
+
+	UFUNCTION(BlueprintPure)
+	UBattleEventContext* GetChildContext() const;
+
+	UFUNCTION(BlueprintPure)
+	int GetTargetCellCount() const;
+
+	UFUNCTION(BlueprintCallable)
+	void PopTargetCells(int numToPop);
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TObjectPtr<USBattleGridCellData> m_sourceCell;
 
@@ -43,4 +61,10 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TObjectPtr<UBattleActionBase> m_action;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TObjectPtr<UBattleEventContext> m_parentContext;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TObjectPtr<UBattleEventContext> m_childContext;
 };
