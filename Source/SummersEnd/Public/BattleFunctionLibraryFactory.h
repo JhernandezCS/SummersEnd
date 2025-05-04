@@ -3,13 +3,13 @@
 #pragma once
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "CoreMinimal.h"
-
 #include "BattleFunctionLibraryFactory.generated.h"
 
 /**
  * 
  */
 class UBattleEventContext;
+class UBattleMoveAction;
 UCLASS()
 class SUMMERSEND_API UBattleFunctionLibraryFactory : public UBlueprintFunctionLibrary
 {
@@ -18,4 +18,8 @@ class SUMMERSEND_API UBattleFunctionLibraryFactory : public UBlueprintFunctionLi
 public:
 	UFUNCTION(BlueprintCallable, Category = "Factory")
 	static UBattleEventContext* CreateUBattleEventContext(UObject* Outer);
+
+	UFUNCTION(BlueprintCallable, Category = "Factory")
+	static UBattleMoveAction* CreateUBattleMoveAction(UObject* Outer);
+
 };

@@ -31,3 +31,11 @@ void UBattleEventContext::Reset()
 	m_targetCells.Empty();
 	m_action = nullptr;
 }
+
+void UBattleEventContext::AddTargetCell(FIntPoint cell, EBattlePlatformCollectionType collType)
+{
+	TObjectPtr<USBattleGridCellData> targetCell = NewObject<USBattleGridCellData>(this);
+	targetCell->m_cell = cell;
+	targetCell->m_type = collType;
+	m_targetCells.Add(targetCell);
+}

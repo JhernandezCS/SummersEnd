@@ -11,6 +11,7 @@
  */
 class USBattleGridCellData;
 class UBattleActionBase;
+
 UCLASS(Blueprintable)
 class SUMMERSEND_API UBattleEventContext : public UObject
 {
@@ -30,6 +31,9 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void Reset();
+
+	UFUNCTION(BlueprintCallable)
+	void AddTargetCell(FIntPoint cell, EBattlePlatformCollectionType collType);
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TObjectPtr<USBattleGridCellData> m_sourceCell;
