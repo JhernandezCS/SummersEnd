@@ -29,3 +29,6 @@ To properly view and interact with the assets in the Unreal Editor, you will nee
 ## Project Status
 **Current State:** Early Development / Prototyping.  
 The focus is currently on core combat mechanics and the dialogue system. You are welcome to browse the code for educational purposes or to see how a modern 2D pipeline is handled in UE5.
+
+## License
+This project is licensed under the [MIT License](LICENSE) - see the LICENSE file for details.
